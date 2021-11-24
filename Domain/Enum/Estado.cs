@@ -8,7 +8,6 @@ namespace Domain.Enum
 {
 	public enum Estado
 	{
-
-
+		Pendiente
 	}
 }

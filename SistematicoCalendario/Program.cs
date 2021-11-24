@@ -3,6 +3,7 @@ using AppCore.Services;
 using Autofac;
 using Domain.Interfaces;
 using Infraestructure;
+using SistematicoCalendario.Formularios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace SistematicoCalendario
 			builder.RegisterType<CalendarioListRepository>().As<ICalendarioRepository>();
 			builder.RegisterType<CalendarioServices>().As<ICalendarioService>();
 			var container = builder.Build();
-			Application.Run(new Form1(container.Resolve<ICalendarioService>()));
+			Application.Run(new AppMain(container.Resolve<ICalendarioService>()));
 		}
 	}
 }

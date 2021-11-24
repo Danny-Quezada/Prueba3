@@ -9,25 +9,17 @@ namespace Domain
 {
 	public class Calendario
 	{
-
-       
-        
-        public DateTime FechaVencimiento { get; set; }
-        
-        public decimal Monto { get; set; }
-      
-        public decimal Tasa { get; set; }
-       
-        public decimal Impuestos { get; set; }
-        public decimal MontoTotal { get; set; }
         public int Id { get; set; }
-        public decimal Intereses { get; set; }
-
-        public Estado Estado { get; set; }
-        public DateTime FechaPaga { get; set; }
         public decimal Principal { get; set; }
-
+        public decimal Intereses { get; set; }
+        public decimal Cuota { get; set; }
+        public Estado Estado { get; set; }
+        public decimal PrincipalPagado { get; set; }
+        public decimal InteresesPagados { get; set; }
+        public decimal CuotaPrestamo { get; set; }
+        public decimal Tasa { get; set; }
         public int Terminos { get; set; }
+        public decimal MontoPrestamo { get; set; }
 
     }
 }

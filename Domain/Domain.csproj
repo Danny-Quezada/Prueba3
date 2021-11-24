@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendario.cs" />
+    <Compile Include="DtoCalendario.cs" />
     <Compile Include="Enum\Estado.cs" />
     <Compile Include="Interfaces\ICalendarioRepository.cs" />
     <Compile Include="Interfaces\IModel.cs" />
