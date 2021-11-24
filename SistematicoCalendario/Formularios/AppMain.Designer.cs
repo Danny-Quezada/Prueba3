@@ -158,7 +158,9 @@ namespace SistematicoCalendario.Formularios
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(167, 20);
             this.txtBusqueda.TabIndex = 10;
+            this.txtBusqueda.Click += new System.EventHandler(this.txtBusqueda_Click);
             this.txtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBusqueda_KeyDown);
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
             // 
             // label1
             // 

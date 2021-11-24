@@ -42,6 +42,7 @@ namespace SistematicoCalendario.Formularios
             if (0 == ValidacionCampos())
             {
                 DgvInfo1.Visible = false;
+                DgvInfo.Visible = true;
                 Calendario calendario = new Calendario
                 {
                     Id = Calendario.GetLastId() + 1,
@@ -138,11 +139,12 @@ namespace SistematicoCalendario.Formularios
             {
                 if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
                 {
+                    DgvInfo.Visible = false;
                     DgvInfo1.Visible = true;
                     DgvInfo1.DataSource = Calendario.FindAll(1);
                     return;
                 }
-
+                DgvInfo1.DataSource = Calendario.FindAll(1);
                 DataTable dt = ConvertToDataTable();
                 dt.DefaultView.RowFilter = string.Format("Id  = '{0}' OR MontoPrestamo = '{0}' OR Tasa = '{0}'", txtBusqueda.Text);
                 BindingSource bs = new BindingSource();
@@ -153,6 +155,27 @@ namespace SistematicoCalendario.Formularios
         private void AppMain_Load(object sender, EventArgs e)
         {
             DgvInfo1.Visible = false;
+        }
+
+        private void txtBusqueda_Click(object sender, EventArgs e)
+        {
+            DgvInfo.Visible = false;
+            DgvInfo1.Visible = true;
+            DgvInfo1.DataSource = Calendario.FindAll(1);
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            if (char.IsNumber(e.KeyChar) || e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
+                || char.IsControl(e.KeyChar))
+
+                e.Handled = false;
+
+            else
+
+                e.Handled = true;
         }
     }
 }
